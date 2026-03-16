@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 # Zimbra_Ansible_Basic
-=======
+======================
 # Zimbra 10.1 Installation
 
 This Ansible role automates the process of installing Zimbra 10.1 on a single server running Ubuntu 22 operating systems.
