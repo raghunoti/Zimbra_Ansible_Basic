@@ -18,8 +18,8 @@ Disable ubuntu dns service "systemd-resolved" because we zimbra-dnscache. Firewa
 
 <pre>
 
-root@mail:~# tree Zimbra10.1\_Single\_Server\_Test
-Zimbra10.1\_Single\_Server\_Test
+root@mail:~# tree Zimbra10.1_Single_Server
+Zimbra10.1_Single_Server
 ├── ansible-zimbra-single
 │   ├
 │   ├── tasks
@@ -43,14 +43,14 @@ It is test, so license activation of zimbra skipped by passing "--skip-activatio
 
 ## Create yaml files and roles for Zimbra installation:
 
-* On ansible server create a driectory called "Zimbra10.1\_Single\_Server\_Test". Note: Directory name can be any, as per your project.
+* On ansible server create a driectory called "Zimbra10.1_Single_Server_Test". Note: Directory name can be any, as per your project.
 
- 	<pre>mkdir Zimbra10.1_Single_Server_Test
+ 	<pre>mkdir Zimbra10.1_Single_Server
 	cd zimbra-single-server-install</pre>
 
 
 
-* Create "inventoray.ini, zimbra-single-install.yml" inside "Zimbra10.1\_Single\_Server\_Test".
+* Create "inventoray.ini, zimbra-single-install.yml" inside "Zimbra10.1_Single_Server".
 	<pre>touch inventoray.ini zimbra-single-install.yml</pre>
 
   
@@ -93,7 +93,7 @@ It is test, so license activation of zimbra skipped by passing "--skip-activatio
    	Example:
   	Update inventoray.ini, zimbra-single-install.yml <br>
   	tasks/main.yml, zimbra101-ubuntu.yml <br>
-  	templates/zimbra\_answers.j2, zimbra\_config.j2
+  	templates/zimbra_answers.j2, zimbra_config.j2
 
   
 
@@ -118,19 +118,14 @@ It is test, so license activation of zimbra skipped by passing "--skip-activatio
 
   
 
-* templates/zimbra\_answers.j2 # During the installation of Zimbra it will prompt to access license agreement and what packages to install, these answers will be passed via this file.
+* templates/zimbra_answers.j2 # During the installation of Zimbra it will prompt to access license agreement and what packages to install, these answers will be passed via this file.
 
    	Note: Remove comment section from this file. I just mentioned for reference.
 
-  
-
-* templates/zimbra\_config.j2 # Inputs for Zimbra post installation script zmsetup.pl
+* templates/zimbra_config.j2 # Inputs for Zimbra post installation script zmsetup.pl
 
   
-
-  
-
-  ## Description
+## Description
 
 * Zimbra installation will be done on two phases.
 * Phase-1, just softwared packages will install.
@@ -141,6 +136,6 @@ It is test, so license activation of zimbra skipped by passing "--skip-activatio
 * zimbra-single-install.yml: Main ansible playbook, from here we call other yaml files.
 * tasks/main.yml: We match operating system
 * tasks/zimbra101-ubuntu.yml: This is the main yaml file t install zimbra 10.1
-* templates/zimbra\_answers.j2: Yes or No inputs that we pass to select which zimbra components to install. Note: Remove commented text from this file, it should be only y/n.
-* templates/zimbra\_config.j2: Configuration information like server ports admin account password..etc.
+* templates/zimbra_answers.j2: Yes or No inputs that we pass to select which zimbra components to install. Note: Remove commented text from this file, it should be only y/n.
+* templates/zimbra_config.j2: Configuration information like server ports admin account password..etc.
 >>>>>>> master
