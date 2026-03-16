@@ -12,7 +12,19 @@ Note: This is just to test Zimbra installation using ansible if you are first ti
 The server must be a fresh installation of Ubuntu 22. The network configuration should be static and already set up. For Ubuntu, the ufw firewall should be stopped and disabled.
 Disable ubuntu dns service "systemd-resolved" because we zimbra-dnscache. Firewalld should be turned off. Ensure that you have a proper Ansible setup and that there is connectivity from the Ansible server to the Zimbra server.
 
+## Description
 
+* Zimbra installation will be done on two phases.
+* Phase-1, just softwared packages will install.
+* Phase-2, by calling zmsetup.pl we complete configuration.
+* Installation logs can be found in /tmp/install.log on zimbra, and configuration logs can be found in /tmp/zmsetup.log
+* Zimbra manual installation not required configuration file, but if installaing via ansible require.
+* inventory.ini: Hostname, ssh key information to connect to the host where we install Zimbra.
+* zimbra-single-install.yml: Main ansible playbook, from here we call other yaml files.
+* tasks/main.yml: We match operating system
+* tasks/zimbra101-ubuntu.yml: This is the main yaml file t install zimbra 10.1
+* templates/zimbra_answers.j2: Yes or No inputs that we pass to select which zimbra components to install. Note: Remove commented text from this file, it should be only y/n.
+* templates/zimbra_config.j2: Configuration information like server ports admin account password..etc.
 
 ## Directory structure of Playbook
 
@@ -26,8 +38,8 @@ Zimbra10.1_Single_Server
 │   │   ├── main.yml
 │   │   └── zimbra101-ubuntu.yml
 │   └── templates
-│       ├── zimbra\_answers.j2
-│       └── zimbra\_config.j2
+│       ├── zimbra_answers.j2
+│       └── zimbra_config.j2
 ├── inventoray.ini
 └── zimbra-single-install.yml
 
@@ -125,17 +137,4 @@ It is test, so license activation of zimbra skipped by passing "--skip-activatio
 * templates/zimbra_config.j2 # Inputs for Zimbra post installation script zmsetup.pl
 
   
-## Description
 
-* Zimbra installation will be done on two phases.
-* Phase-1, just softwared packages will install.
-* Phase-2, by calling zmsetup.pl we complete configuration.
-* Installation logs can be found in /tmp/install.log on zimbra, and configuration logs can be found in /tmp/zmsetup.log
-* Zimbra manual installation not required configuration file, but if installaing via ansible require.
-* inventory.ini: Hostname, ssh key information to connect to the host where we install Zimbra.
-* zimbra-single-install.yml: Main ansible playbook, from here we call other yaml files.
-* tasks/main.yml: We match operating system
-* tasks/zimbra101-ubuntu.yml: This is the main yaml file t install zimbra 10.1
-* templates/zimbra_answers.j2: Yes or No inputs that we pass to select which zimbra components to install. Note: Remove commented text from this file, it should be only y/n.
-* templates/zimbra_config.j2: Configuration information like server ports admin account password..etc.
->>>>>>> master
