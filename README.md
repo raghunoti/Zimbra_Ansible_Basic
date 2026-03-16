@@ -46,7 +46,7 @@ It is test, so license activation of zimbra skipped by passing "--skip-activatio
 * On ansible server create a driectory called "Zimbra10.1_Single_Server_Test". Note: Directory name can be any, as per your project.
 
  	<pre>mkdir Zimbra10.1_Single_Server
-	cd zimbra-single-server-install</pre>
+	cd Zimbra10.1_Single_Server</pre>
 
 
 
