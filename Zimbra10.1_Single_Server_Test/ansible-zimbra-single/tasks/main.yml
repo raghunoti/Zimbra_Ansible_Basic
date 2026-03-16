@@ -1,0 +1,8 @@
+---
+# tasks file for ansible-zimbra-single
+- name: import zimbra101-ubuntu.yml
+  import_tasks: zimbra101-ubuntu.yml
+  when:
+    - ansible_distribution == "Ubuntu"
+    - ansible_distribution_version == "22.04"
+  tags: zimbra10.1
