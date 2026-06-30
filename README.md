@@ -30,8 +30,8 @@ Disable ubuntu dns service "systemd-resolved" because we zimbra-dnscache. Firewa
 
 <pre>
 
-root@mail:~# tree Zimbra10.1_Single_Server
-Zimbra10.1_Single_Server
+root@mail:~# tree Zimbra_Single_Server_Ansible
+Zimbra_Single_Server_Ansible
 ├── ansible-zimbra-single
 │   ├
 │   ├── tasks
@@ -55,14 +55,14 @@ It is test, so license activation of zimbra skipped by passing "--skip-activatio
 
 ## Create yaml files and roles for Zimbra installation:
 
-* On ansible server create a driectory called "Zimbra10.1_Single_Server_Test". Note: Directory name can be any, as per your project.
+* On ansible server create a driectory called "Zimbra_Single_Server_Ansible". Note: Directory name can be any, as per your project.
 
- 	<pre>mkdir Zimbra10.1_Single_Server
-	cd Zimbra10.1_Single_Server</pre>
+ 	<pre>mkdir Zimbra_Single_Server_Ansible
+	cd Zimbra_Single_Server_Ansible</pre>
 
 
 
-* Create "inventoray.ini, zimbra-single-install.yml" inside "Zimbra10.1_Single_Server".
+* Create "inventoray.ini, zimbra-single-install.yml" inside "Zimbra_Single_Server_Ansible".
 	<pre>touch inventoray.ini zimbra-single-install.yml</pre>
 
   
